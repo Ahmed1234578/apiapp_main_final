@@ -27,10 +27,11 @@
         </div>
     </header>    
     <main class="p-4">
-        <div class="flex justify-between items-center mb-4">
-            <button onclick="history.back()" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
-                ← Back
-            </button>
+        {% if request.endpoint != 'main.index' %}
+    <button onclick="history.back()" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+        ← Back
+    </button>
+{% endif %}
     
             {% if 'user_id' in session and 'admin_id' not in session %}
                 <a href="{{ url_for('main.logout') }}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
@@ -51,5 +52,6 @@
     </footer>
 </body>
 </html>
+
 
  
